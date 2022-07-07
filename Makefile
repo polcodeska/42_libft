@@ -6,7 +6,7 @@
 #    By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 16:30:15 by tmasur            #+#    #+#              #
-#    Updated: 2022/07/07 20:59:33 by tmasur           ###   ########.fr        #
+#    Updated: 2022/07/07 21:28:29 by tmasur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,3 @@ re: fclean all
 
 # PHONY ------------------------------------------------------------------------
 .PHONY: clean, all, fclean, re
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
