@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 10:54:41 by tmasur            #+#    #+#             */
-/*   Updated: 2022/01/18 23:35:35 by tmasur           ###   ########.fr       */
+/*   Created: 2021/11/20 18:30:06 by tmasur            #+#    #+#             */
+/*   Updated: 2022/01/18 23:37:10 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
+	size_t	j;
 
-	if (s && f)
+	i = 0;
+	if (!*s2)
+		return ((char *)s1);
+	while (*(s1 + i) && i < n)
 	{
-		i = 0;
-		while (*(s + i))
+		j = 0;
+		while (*(s1 + i + j) && i + j < n && *(s1 + i + j) == *(s2 + j))
 		{
-			(*f)(i, s + i);
-			i++;
+			if (!*(s2 + j + 1))
+				return ((char *)s1 + i);
+			j++;
 		}
+		i++;
 	}
+	return (NULL);
 }

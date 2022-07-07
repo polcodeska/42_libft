@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 10:31:12 by tmasur            #+#    #+#             */
-/*   Updated: 2022/01/18 23:35:49 by tmasur           ###   ########.fr       */
+/*   Created: 2021/11/25 10:23:40 by tmasur            #+#    #+#             */
+/*   Updated: 2022/01/18 23:37:52 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*r1;
-	char	*r2;
+	char	*r;
 
-	if (!s1 || !s2)
+	if (!s)
 		return (NULL);
-	r1 = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!r1)
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	r = malloc(len + 1);
+	if (!r)
 		return (NULL);
-	r2 = r1;
-	while (*s1)
-		*(r1++) = *s1++;
-	while (*s2)
-		*(r1++) = *s2++;
-	*(r1) = '\0';
-	return (r2);
+	ft_strlcpy(r, s + start, len + 1);
+	return (r);
 }

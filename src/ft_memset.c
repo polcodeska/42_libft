@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 22:28:09 by tmasur            #+#    #+#             */
-/*   Updated: 2022/01/18 23:33:12 by tmasur           ###   ########.fr       */
+/*   Created: 2021/11/19 22:25:12 by tmasur            #+#    #+#             */
+/*   Updated: 2022/01/18 23:33:48 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	void	*r;
 
-	if (!dest && !src)
-		n = 0;
-	r = dest;
+	r = s;
 	while (n--)
-	{
-		*(unsigned char *)dest++ = *(unsigned char *)src++;
-	}
+		*(char *)s++ = (char)c;
 	return (r);
 }

@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 11:04:31 by tmasur            #+#    #+#             */
-/*   Updated: 2022/01/18 23:34:15 by tmasur           ###   ########.fr       */
+/*   Created: 2021/11/19 18:43:50 by tmasur            #+#    #+#             */
+/*   Updated: 2022/01/18 23:36:32 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+size_t	ft_strlen(const char *s)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	const char	*ptr_s;
+
+	ptr_s = s;
+	while (*ptr_s)
+		ptr_s++;
+	return (ptr_s - s);
 }

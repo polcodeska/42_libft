@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static int	ft_count_substrings(const char *s, char c);
 static char	*ft_get_substring(char const *s, char c);

@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 11:02:09 by tmasur            #+#    #+#             */
-/*   Updated: 2022/01/18 23:34:44 by tmasur           ###   ########.fr       */
+/*   Created: 2021/11/20 22:28:09 by tmasur            #+#    #+#             */
+/*   Updated: 2022/01/18 23:33:12 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (s)
+	void	*r;
+
+	if (!dest && !src)
+		n = 0;
+	r = dest;
+	while (n--)
 	{
-		while (s && *s)
-			ft_putchar_fd(*s++, fd);
+		*(unsigned char *)dest++ = *(unsigned char *)src++;
 	}
+	return (r);
 }

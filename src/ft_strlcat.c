@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 11:06:54 by tmasur            #+#    #+#             */
-/*   Updated: 2022/01/18 23:34:27 by tmasur           ###   ########.fr       */
+/*   Created: 2021/11/19 23:39:01 by tmasur            #+#    #+#             */
+/*   Updated: 2022/01/18 23:36:03 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	long	r;
+	size_t	dst_len;
+	size_t	src_len;
 
-	r = n;
-	if (r < 0)
-	{
-		ft_putchar_fd('-', fd);
-		r = -r;
-	}
-	if (r >= 10)
-		ft_putnbr_fd(r / 10, fd);
-	ft_putchar_fd(r % 10 + '0', fd);
+	src_len = ft_strlen(src);
+	dst_len = ft_strlen(dst);
+	if (size <= dst_len)
+		return (src_len + size);
+	ft_strlcpy(dst + dst_len, src, size - dst_len);
+	return (dst_len + src_len);
 }

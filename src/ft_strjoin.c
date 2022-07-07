@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 18:30:06 by tmasur            #+#    #+#             */
-/*   Updated: 2022/01/18 23:37:10 by tmasur           ###   ########.fr       */
+/*   Created: 2021/11/25 10:31:12 by tmasur            #+#    #+#             */
+/*   Updated: 2022/01/18 23:35:49 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	j;
+	char	*r1;
+	char	*r2;
 
-	i = 0;
-	if (!*s2)
-		return ((char *)s1);
-	while (*(s1 + i) && i < n)
-	{
-		j = 0;
-		while (*(s1 + i + j) && i + j < n && *(s1 + i + j) == *(s2 + j))
-		{
-			if (!*(s2 + j + 1))
-				return ((char *)s1 + i);
-			j++;
-		}
-		i++;
-	}
-	return (NULL);
+	if (!s1 || !s2)
+		return (NULL);
+	r1 = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!r1)
+		return (NULL);
+	r2 = r1;
+	while (*s1)
+		*(r1++) = *s1++;
+	while (*s2)
+		*(r1++) = *s2++;
+	*(r1) = '\0';
+	return (r2);
 }

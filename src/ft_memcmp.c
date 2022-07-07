@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 22:25:12 by tmasur            #+#    #+#             */
-/*   Updated: 2022/01/18 23:33:48 by tmasur           ###   ########.fr       */
+/*   Created: 2021/11/20 21:38:54 by tmasur            #+#    #+#             */
+/*   Updated: 2022/01/18 23:32:58 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	void	*r;
-
-	r = s;
 	while (n--)
-		*(char *)s++ = (char)c;
-	return (r);
+	{
+		if (*(unsigned char *)s1++ != *(unsigned char *)s2++)
+			return (*(unsigned char *)--s1 - *(unsigned char *)--s2);
+	}
+	return (0);
 }

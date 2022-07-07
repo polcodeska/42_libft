@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 21:38:54 by tmasur            #+#    #+#             */
-/*   Updated: 2022/01/18 23:32:58 by tmasur           ###   ########.fr       */
+/*   Created: 2021/11/20 23:01:29 by tmasur            #+#    #+#             */
+/*   Updated: 2022/01/18 23:37:25 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	while (n--)
+	int	i;
+
+	i = ft_strlen(s);
+	if (!(char)c)
+		return ((char *)s + i);
+	while (i >= 0)
 	{
-		if (*(unsigned char *)s1++ != *(unsigned char *)s2++)
-			return (*(unsigned char *)--s1 - *(unsigned char *)--s2);
+		if (*(s + i) == (char)c)
+			return ((char *)s + i);
+		i--;
 	}
-	return (0);
+	return (NULL);
 }

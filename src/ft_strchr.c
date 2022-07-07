@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/20 21:52:01 by tmasur            #+#    #+#             */
-/*   Updated: 2022/01/18 23:32:45 by tmasur           ###   ########.fr       */
+/*   Created: 2021/11/20 22:56:41 by tmasur            #+#    #+#             */
+/*   Updated: 2022/01/18 23:35:09 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	while (n--)
+	while (*s)
 	{
-		if (*(unsigned char *)s == (unsigned char)c)
-			return ((void *)s);
+		if (*s == (char)c)
+			return ((char *)s);
 		s++;
 	}
+	if (!*s && !(char)c)
+		return ((char *)s);
 	return (NULL);
 }

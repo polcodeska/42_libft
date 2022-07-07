@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 10:23:40 by tmasur            #+#    #+#             */
-/*   Updated: 2022/01/18 23:37:52 by tmasur           ###   ########.fr       */
+/*   Created: 2021/11/22 14:07:25 by tmasur            #+#    #+#             */
+/*   Updated: 2022/01/18 23:30:19 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char	*r;
+	void	*r;
 
-	if (!s)
-		return (NULL);
-	if (start >= ft_strlen(s))
-		return (ft_strdup(""));
-	r = malloc(len + 1);
+	r = malloc(nmemb * size);
 	if (!r)
-		return (NULL);
-	ft_strlcpy(r, s + start, len + 1);
+		return (r);
+	ft_bzero(r, nmemb * size);
 	return (r);
 }

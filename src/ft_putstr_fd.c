@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmasur <tmasur@mail.de>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 23:09:59 by tmasur            #+#    #+#             */
-/*   Updated: 2022/01/18 23:36:20 by tmasur           ###   ########.fr       */
+/*   Created: 2021/11/25 11:02:09 by tmasur            #+#    #+#             */
+/*   Updated: 2022/01/18 23:34:44 by tmasur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int			src_len;
-
-	src_len = ft_strlen(src);
-	if (size > 0)
+	if (s)
 	{
-		while (*src && --size)
-			*dst++ = *src++;
-		*dst = '\0';
+		while (s && *s)
+			ft_putchar_fd(*s++, fd);
 	}
-	return (src_len);
 }
